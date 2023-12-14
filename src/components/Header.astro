@@ -1,0 +1,30 @@
+---
+import HeaderComponent from "./HeaderComponent.astro";
+import HeaderLink from "./HeaderLink.astro";
+import ThemeButton from "./ThemeButton.vue";
+---
+<div class="border-b dark:border-slate-700 dark:border-opacity-25 dark:shadow-md dark:bg-zinc-950 bg-white h-14 fixed w-full z-10">
+    <div class='w-2/3 mx-auto flex'>
+        <HeaderComponent>
+            <HeaderLink text="Bailey" link="/" className='text-4xl pl-0'/>
+        </HeaderComponent>
+        <nav class="ml-auto flex items-center">
+            <HeaderComponent>
+                <ThemeButton client:load />
+            </HeaderComponent>
+            <HeaderComponent>
+                <HeaderLink text="About" link="/#about"/>
+            </HeaderComponent>
+            <HeaderComponent>
+                <HeaderLink text="Experience" link="/#experience"//>
+            </HeaderComponent>
+            <HeaderComponent>
+                <HeaderLink text="Projects" link="/#projects"/>
+            </HeaderComponent>
+            <HeaderComponent>
+                <HeaderLink text="Resume" link="/resume.pdf" targetBlank/>
+            </HeaderComponent>
+        </nav>
+    </div>
+    
+</div>
