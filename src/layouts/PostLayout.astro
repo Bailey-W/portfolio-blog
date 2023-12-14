@@ -1,0 +1,75 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+const { frontmatter } = Astro.props;
+
+let title = "Bailey - " + frontmatter.title;
+
+function formatDate(date: string) {
+    return new Date(date).toLocaleDateString('en-US')
+}
+
+---
+
+<BaseLayout {title}>
+    <div class="text-black dark:text-indigo-100 text-center">
+        <img src={frontmatter.image.url} alt={frontmatter.image.alt} class="mx-auto pt-12 h-64 w-full object-cover"/>
+        <h1 class="mt-10 text-5xl text-indigo-400">
+            {frontmatter.title}
+        </h1>
+        <h3 class="m-4 text-xl pb-8">
+            by <a href='/about' target='_blank' class="text-blue-600">{frontmatter.author}</a>
+            <small class="text-sm">
+                | {formatDate(frontmatter.pubDate)}
+            </small>
+        </h3>
+    </div>
+    <div class="article-slot pb-12">
+        <slot />
+    </div>
+    <style is:global>
+        .article-slot > h1 {
+            @apply text-3xl p-4 dark:text-indigo-100
+        }
+
+        .article-slot > h2 {
+            @apply text-2xl p-4 mt-4 text-indigo-400 font-bold border-t-2 border-blue-800
+        }
+
+        .article-slot > p {
+            @apply text-lg dark:text-indigo-100 indent-8
+        }
+
+        .article-slot > ol {
+            @apply list-decimal text-xl pl-8 dark:text-indigo-100
+        }
+
+        .article-slot > ol > li {
+            @apply py-2
+        }
+
+        .article-slot > ol > li > p {
+            @apply text-lg
+        }
+
+        .article-slot > ol * > strong {
+            @apply text-xl
+        }
+
+        .article-slot * > code > span {
+            @apply ml-8
+        }
+
+        .article-slot * > a {
+            @apply text-blue-600
+        }
+
+        .article-slot * > img {
+            @apply mx-auto p-12
+        }
+
+        .article-slot * > br {
+            @apply my-4
+        }
+    </style>
+</BaseLayout>
