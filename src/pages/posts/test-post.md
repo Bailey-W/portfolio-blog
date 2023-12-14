@@ -5,7 +5,7 @@ pubDate: 2022-07-01
 description: 'This is the first post of my new Astro blog.'
 author: 'Astro Learner'
 image:
-    url: 'https://docs.astro.build/assets/full-logo-light.png'
+    url: '/images/beach.jpg'
     alt: 'The full Astro logo.'
 tags: ["astro", "blogging", "learning in public"]
 ---
@@ -31,8 +31,11 @@ function formatDate(date: string) {
     return new Date(date).toLocaleDateString('en-US')
 }
 ---
+<h4>
+    Test
+</h4>
 ```
-![Picture test](https://docs.astro.build/assets/full-logo-light.png)
+![Picture test](/images/beach.jpg)
 
 
 ## What's next
@@ -43,12 +46,12 @@ I will finish the Astro tutorial, and then keep adding more posts. Watch this sp
 I will finish the Astro tutorial, and then keep adding more posts. Watch this space for more to come.
 I will finish the Astro tutorial, and then keep adding more posts. Watch this space for more to come.
 I will finish the Astro tutorial, and then keep adding more posts. Watch this space for more to come.
-I will finish the Astro tutorial, and then keep adding more posts. Watch this space for more to come.  
+I will finish the Astro tutorial, and then keep adding more posts. Watch this space for more to come.
 I will finish the Astro tutorial, and then keep adding more posts. Watch this space for more to come.
 I will finish the Astro tutorial, and then keep adding more posts. Watch this space for more to come.
 
 I will finish the Astro tutorial, and then keep adding more posts. Watch this space for more to come.
-I will finish the Astro tutorial, and then keep adding more posts. Watch this space for more to come.  
+I will finish the Astro tutorial, and then keep adding more posts. Watch this space for more to come.
 I will finish the Astro tutorial, and then keep adding more posts. Watch this space for more to come.
 I will finish the Astro tutorial, and then keep adding more posts. Watch this space for more to come.
 
