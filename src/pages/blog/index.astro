@@ -7,5 +7,6 @@ const posts = await Astro.glob('./posts/*.md');
 
 <BaseLayout title="Bailey - Blog">
     <p class="py-4"> </p>
+    <h2 class="text-blue-600 text-4xl text-center">Blog</h2>
     <PostCardCollection {posts} />
 </BaseLayout>
