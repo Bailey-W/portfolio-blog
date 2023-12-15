@@ -1,6 +1,8 @@
 ---
 import BaseLayout from './BaseLayout.astro';
 
+import Tag from '../components/Tag.astro';
+
 const { frontmatter } = Astro.props;
 
 let title = "Bailey - " + frontmatter.title;
@@ -17,12 +19,15 @@ function formatDate(date: string) {
         <h1 class="mt-10 text-5xl text-indigo-400">
             {frontmatter.title}
         </h1>
-        <h3 class="m-4 text-xl pb-8">
+        <h3 class="m-4 text-xl">
             by <a href='/about' target='_blank' class="text-blue-600">{frontmatter.author}</a>
             <small class="text-sm">
                 | {formatDate(frontmatter.pubDate)}
             </small>
         </h3>
+        <div class="pb-8 flex justify-center">
+            {frontmatter.tags.map((tag: string) => <Tag tag={tag} />)}
+        </div>
     </div>
     <div class="article-slot pb-12">
         <slot />
