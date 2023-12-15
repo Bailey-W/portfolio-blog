@@ -1,11 +1,11 @@
 ---
 layout: '../../../layouts/PostLayout.astro'
-title: 'My First Blog Post'
-pubDate: 2023-07-01
+title: 'This is a long test title to see what happens'
+pubDate: 2022-06-01
 description: 'This is the first post of my new Astro blog.'
 author: 'Astro Learner'
 image:
-    url: '/images/forest.jpg'
+    url: '/images/beach.jpg'
     alt: 'The full Astro logo.'
 tags: ["astro", "blogging", "learning in public"]
 ---
