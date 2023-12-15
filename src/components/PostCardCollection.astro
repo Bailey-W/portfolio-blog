@@ -1,9 +1,9 @@
 ---
 import PostCard from "./PostCard.astro";
 
-const { posts } = Astro.props;
+const { posts, number } = Astro.props;
 
-const sortedPosts = posts.sort((a: any, b: any) => {
+posts.sort((a: any, b: any) => {
     if(a.frontmatter.pubDate > b.frontmatter.pubDate)
         return -1;
 
@@ -12,7 +12,13 @@ const sortedPosts = posts.sort((a: any, b: any) => {
     
     return 0;
 });
+
+let selectedPosts = posts;
+
+if (number) {
+    selectedPosts = posts.slice(0, number);
+}
 ---
 <div class="flex flex-wrap">
-    {sortedPosts.map((post: any) => <PostCard frontmatter={post.frontmatter} url={post.url} />)}
+    {selectedPosts.map((post: any) => <PostCard frontmatter={post.frontmatter} url={post.url} />)}
 </div>
