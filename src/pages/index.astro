@@ -1,9 +1,21 @@
 ---
 import Layout from '../layouts/BaseLayout.astro';
+
+import PostCardCollection from '../components/PostCardCollection.astro';
+
+const posts = await Astro.glob('./blog/posts/*.md');
 ---
 
-<Layout title="Blog">
-	<div class='flex w-full min-h-screen justify-center items-center'> 
+<Layout title="Bailey">
+	<div class='flex w-full pt-12 pb-36 justify-center'> 
 		<p class="text-6xl dark:text-white p-4 py-12">Hello! My name is <a class="text-indigo-400 text-8xl hover:border-b-8 border-blue-800 transition-all" href="/about">Bailey...</a></p>
+	</div>
+	<div class="border-2 border-zinc-900 rounded-lg mb-12">
+		<!-- Shows the 4 most recent posts -->
+		<h2 class="text-3xl py-2 px-2 text-blue-600 text-center">Recent Posts</h2>
+		<PostCardCollection {posts} number="4"/>
+		<div class="flex">
+			<a href="/blog" class="ml-auto text-blue-800 text-2xl border-2 px-2 m-2 rounded-lg border-zinc-900">See more posts →</a>
+		</div>
 	</div>
 </Layout>
