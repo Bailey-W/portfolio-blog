@@ -21,6 +21,6 @@ if (number) {
     selectedPosts = posts.slice(0, number);
 }
 ---
-<div class="flex flex-wrap">
+<div class="flex flex-wrap justify-center">
     {selectedPosts.map((post: any) => <PostCard frontmatter={post.frontmatter} url={post.url} />)}
 </div>
