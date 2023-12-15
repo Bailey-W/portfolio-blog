@@ -7,6 +7,7 @@ const { frontmatter } = Astro.props;
 
 let title = "Bailey - " + frontmatter.title;
 
+// Formats date into US readable form
 function formatDate(date: string) {
     return new Date(date).toLocaleDateString('en-US')
 }
@@ -34,6 +35,7 @@ function formatDate(date: string) {
     <div class="article-slot pb-12">
         <slot />
     </div>
+    <!-- Style is global due to the use of slot with the md files -->
     <style is:global>
         .article-slot > h1 {
             @apply text-3xl p-4 dark:text-indigo-100
