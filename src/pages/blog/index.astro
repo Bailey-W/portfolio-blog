@@ -1,0 +1,11 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PostCardCollection from "../../components/PostCardCollection.astro";
+
+const posts = await Astro.glob('./posts/*.md');
+---
+
+<BaseLayout title="Bailey - Blog">
+    <p class="py-4"> </p>
+    <PostCardCollection {posts} />
+</BaseLayout>
