@@ -7,15 +7,15 @@ function formatDate(date: string) {
     return new Date(date).toLocaleDateString('en-US')
 }
 
-const maxTitleLength = 27
+// const maxTitleLength = 27
 
-const shortenedTitle = frontmatter.title.length > maxTitleLength ? frontmatter.title.slice(0,maxTitleLength - 2) + "..." : frontmatter.title;
+// const shortenedTitle = frontmatter.title.length > maxTitleLength ? frontmatter.title.slice(0,maxTitleLength - 2) + "..." : frontmatter.title;
 ---
 
 <a class="flex-auto w-64 flex-grow-0 rounded-lg m-4 p-2 shadow-lg border-2 dark:border-zinc-900" href={url}>
     <img class="rounded-t-lg w-full h-48 object-cover" src={frontmatter.image.url} alt={frontmatter.image.alt}/>
-    <h3 class="text-indigo-400 text-xl">
-        {shortenedTitle}
+    <h3 class="text-indigo-400 text-xl truncate">
+        {frontmatter.title}
     </h3>
     <div class="flex border-b-2 border-blue-600">
         <h4 class="dark:text-indigo-100">
@@ -25,7 +25,8 @@ const shortenedTitle = frontmatter.title.length > maxTitleLength ? frontmatter.t
             {formatDate(frontmatter.pubDate)}
         </h4>
     </div>
-    <p class="dark:text-indigo-100">
+    <p class="dark:text-indigo-100 line-clamp-3 min-h-[4.5rem]">
         {frontmatter.description}
     </p>
+    <p class="text-blue-800 pt-2">Read More...</p>
 </a>
