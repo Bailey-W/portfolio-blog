@@ -5,7 +5,9 @@ interface Props {
 
 const { tag } = Astro.props;
 
-const link = `/blog/tags/${tag}`;
+const tagForLink = tag.replaceAll(' ', '_');
+
+const link = `/blog/tags/${tagForLink}`;
 ---
 <a class="bg-blue-600 mx-1 px-2 rounded-full" href={link}>
     #{tag}
