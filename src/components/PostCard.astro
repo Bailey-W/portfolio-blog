@@ -3,13 +3,10 @@ import Tag from '../components/Tag.astro';
 
 const { frontmatter, url } = Astro.props;
 
+// Formats dates for US schema
 function formatDate(date: string) {
     return new Date(date).toLocaleDateString('en-US')
 }
-
-// const maxTitleLength = 27
-
-// const shortenedTitle = frontmatter.title.length > maxTitleLength ? frontmatter.title.slice(0,maxTitleLength - 2) + "..." : frontmatter.title;
 ---
 
 <a class="flex-auto w-64 flex-grow-0 rounded-lg m-4 p-2 shadow-lg border-2 dark:border-zinc-900" href={url}>

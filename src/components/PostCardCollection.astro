@@ -3,6 +3,7 @@ import PostCard from "./PostCard.astro";
 
 const { posts, number } = Astro.props;
 
+// Sorts posts by date published
 posts.sort((a: any, b: any) => {
     let dateA = new Date(a.frontmatter.pubDate);
     let dateB = new Date(b.frontmatter.pubDate);
@@ -14,8 +15,8 @@ posts.sort((a: any, b: any) => {
     return 0;
 });
 
+// Limits posts to the specified number (if it exists)
 let selectedPosts = posts;
-
 if (number) {
     selectedPosts = posts.slice(0, number);
 }
