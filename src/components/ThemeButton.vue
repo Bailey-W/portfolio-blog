@@ -4,13 +4,14 @@ import { ref } from 'vue'
 let dark = ref(true)
 
 function toggleTheme() {
-    console.log(dark)
     if(document.documentElement.classList.contains('dark')) {
         document.documentElement.classList.remove('dark');
+        document.cookie = "darkmode=0";
         dark = true;
     }
     else {
-        document.documentElement.classList.add('dark')
+        document.documentElement.classList.add('dark');
+        document.cookie = "darkmode=1";
         dark = false;
     }
 }

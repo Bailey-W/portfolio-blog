@@ -1,10 +1,9 @@
 ---
 interface Props {
-	title: string;
-	dark?: boolean
+	title: string
 }
 
-const { title, dark } = Astro.props;
+const { title } = Astro.props;
 
 import Header from '../components/Header.astro';
 ---
@@ -27,6 +26,21 @@ import Header from '../components/Header.astro';
 			<slot />
 		</div>
 	</body>
+
+	<script is:inline>
+		// Finds all cookies and puts them into an array
+		let x = document.cookie.split('; ');
+		x.forEach((cookie) => {
+			if(cookie.includes('darkmode')){
+				// The current cookie is darkmode
+				// Checks if darkmode is set to true ("1")
+				if(cookie.includes('0')) {
+					console.log('Should be light mode');
+					document.documentElement.classList.remove('dark');
+				}
+			}
+		})
+	</script>
 </html>
 
 <!-- <script is:inline>
