@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths () {
+    const posts = await Astro.glob('../posts/*.md');
+
+    let tags = new Set();
+    posts.forEach((post) => {
+        post.frontmatter.tags.forEach((tag: string) => {
+            // Tags need to match links for the tags
+            tags.add(tag.replaceAll(' ', '_'));
+        })
+    })
+
+    let res: Array<Object> = []
+
+    tags.forEach((tag) => {
+        res.push({params: {tag: tag}});
+    })
+
+    return res;
+}
+
+interface params {
+    tag: string,
+}
+
+let { tag }: params = Astro.params;
+
+tag = tag.replaceAll('_', ' ');
+
+const posts = await Astro.glob('../posts/*.md');
+
+let results: Array<Object> = []
+
+posts.forEach((post) => {
+    let found = post.frontmatter.tags.forEach((tagElement: string) => {
+        if(tagElement == tag) {
+            results.push(post);
+        }
+    });
+})
+
+import PostCardCollection from '../../../components/PostCardCollection.astro';
+---
+<BaseLayout title={`Bailey - ${tag}`}>
+    <p class="py-4"> </p>
+    <h2 class="text-blue-600 text-4xl text-center">Posts tagged with "{tag}"...</h2>
+    <PostCardCollection posts={results} />
+</BaseLayout>
