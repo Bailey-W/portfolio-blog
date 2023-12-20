@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
+import { filterPostsByTag } from '../../../scripts/posts';
+
 export async function getStaticPaths () {
     const posts = await Astro.glob('../posts/*.md');
 
@@ -31,15 +33,7 @@ tag = tag.replaceAll('_', ' ');
 
 const posts = await Astro.glob('../posts/*.md');
 
-let results: Array<Object> = []
-
-posts.forEach((post) => {
-    let found = post.frontmatter.tags.forEach((tagElement: string) => {
-        if(tagElement == tag) {
-            results.push(post);
-        }
-    });
-})
+let results = filterPostsByTag(posts, tag);
 
 import PostCardCollection from '../../../components/PostCardCollection.astro';
 ---
