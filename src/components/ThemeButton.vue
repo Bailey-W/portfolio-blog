@@ -29,7 +29,5 @@ function toggleTheme() {
       <path data-name="layer1" d="M36.4 16.4a2 2 0 0 0 2-2v-8a2 2 0 1 0-4 0v8a2 2 0 0 0 2 2zm-20 20a2 2 0 0 0-2-2h-8a2 2 0 0 0 0 4h8a2 2 0 0 0 2-2zm3-14.1a2 2 0 0 0 2.8-2.8l-5.7-5.7a2 2 0 0 0-2.8 2.8zM59 13.8a2 2 0 0 0-2.8 0l-5.7 5.7a2 2 0 1 0 2.8 2.8l5.7-5.7a2 2 0 0 0 0-2.8zM19.4 50.5l-5.7 5.7a2 2 0 1 0 2.9 2.8l5.7-5.7a2 2 0 1 0-2.8-2.8z"
       ></path>
     </svg>
-    <!-- <span class="dark:visible dark:w-full w-0 invisible relative">Dark</span>
-    <span class="dark:invisible dark:w-0 w-full visible relative">Light</span> -->
   </button>
 </template>
