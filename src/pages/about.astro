@@ -1,0 +1,22 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+<BaseLayout title="Bailey - About">
+    <p class="py-4"> </p>
+    <div class="xl:grid xl:grid-cols-2">
+        <div>
+            <h3>About me</h3>
+            <p></p>
+        </div>
+        <img class="pt-4" src="/images/beach.jpg" alt="a beach" />
+    </div>
+</BaseLayout>
+<style>
+    h3 {
+        @apply text-blue-600 text-4xl text-center
+    }
+
+    p {
+        @apply text-lg dark:text-indigo-100 indent-8
+    }
+</style>
