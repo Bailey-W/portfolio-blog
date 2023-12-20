@@ -1,6 +1,12 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { Icon } from 'astro-icon';
+import { filterPostsByTag } from "../scripts/posts";
+import PostCardCollection from "../components/PostCardCollection.astro";
+
+const posts = await Astro.glob('./blog/posts/*.md');
+
+let results = filterPostsByTag(posts, 'featured project');
 ---
 <BaseLayout title="Bailey - About">
     <p class="py-4"> </p>
@@ -27,6 +33,7 @@ import { Icon } from 'astro-icon';
             </p>
         </div>
     </div>
+    <PostCardCollection posts={results} />
 </BaseLayout>
 <style>
     h2 {
