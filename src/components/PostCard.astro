@@ -10,7 +10,7 @@ function formatDate(date: string) {
 ---
 
 <!-- The whole post card is a link to the blog post -->
-<a class="flex-auto w-64 flex-grow-0 m-4 shadow-lg border-2 dark:border-zinc-800 dark:hover:bg-zinc-800 dark:hover:border-zinc-700 transition-all hover:shadow-2xl" href={url}>
+<a class="group flex-auto w-64 flex-grow-0 m-4 shadow-lg border-2 dark:border-zinc-800 dark:hover:bg-zinc-800 dark:hover:border-zinc-700 transition-all hover:shadow-2xl" href={url}>
     <img class="w-full h-48 object-cover" src={frontmatter.image.url} alt={frontmatter.image.alt}/>
     <h3 class="text-indigo-400 text-xl truncate px-1">
         <!-- Title gets truncated -->
@@ -28,5 +28,5 @@ function formatDate(date: string) {
         <!-- Shows the first 3 lines of the description -->
         {frontmatter.description}
     </p>
-    <p class="text-blue-800 pt-2 px-1">Read More...</p>
+    <p class="dark:text-white py-2 px-1">Read <span class="text-indigo-400 group-hover:border-b-2 border-blue-800 transition-all">More</span>...</p>
 </a>
