@@ -1,11 +1,19 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { Icon } from 'astro-icon';
 ---
 <BaseLayout title="Bailey - About">
     <p class="py-4"> </p>
-    <!-- <h2>About me</h2> -->
     <div>
         <img class="mx-auto w-72 h-72 rounded-full my-12" src="/images/profile-picture.jpg" alt="a beach" />
+        <div class="flex justify-center space-x-2">
+            <a href="https://github.com/Bailey-W" target="_blank">
+                <Icon pack="mdi" name="github" class="icon"/>
+            </a>
+            <a href="https://www.linkedin.com/in/bwimer3/" target="_blank">
+                <Icon pack="mdi" name="linkedin" class="icon"/>
+            </a>
+        </div>
         <h2 class="">Who am I?</h2>
         <div>
             <p>
@@ -27,5 +35,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
     p {
         @apply text-xl dark:text-indigo-100 indent-8
+    }
+
+    .icon {
+        @apply w-20 text-indigo-400 hover:border-b-4 border-blue-600 transition-all duration-100 pb-4 hover:pb-0
     }
 </style>
