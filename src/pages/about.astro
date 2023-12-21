@@ -1,0 +1,50 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { Icon } from 'astro-icon';
+import { filterPostsByTag } from "../scripts/posts";
+import PostCardCollection from "../components/PostCardCollection.astro";
+
+const posts = await Astro.glob('./blog/posts/*.md');
+
+let results = filterPostsByTag(posts, 'featured project');
+---
+<BaseLayout title="Bailey - About">
+    <p class="py-4"> </p>
+    <div>
+        <img class="mx-auto w-72 h-72 rounded-full my-12" src="/images/profile-picture.jpg" alt="a beach" />
+        <div class="flex justify-center space-x-2">
+            <a href="https://github.com/Bailey-W" target="_blank">
+                <Icon pack="mdi" name="github" class="icon"/>
+            </a>
+            <a href="https://www.linkedin.com/in/bwimer3/" target="_blank">
+                <Icon pack="mdi" name="linkedin" class="icon"/>
+            </a>
+        </div>
+        <h2 class="">Who am I?</h2>
+        <div>
+            <p>
+                My name is Bailey, and I am incoming software developer at Netflix. 
+                I have a wide variety of interests, from web dev, to embedded systems, to robotics.
+                I am excited to join such a talented team, and I made this page to share my experience and journey along the way.
+            </p>
+            <p>
+                I primarily focus on JavaScript, Python, and C++. I have recently started dabbling in Rust and Go as well.
+                To see some of my work so far, check out these curated projects:
+            </p>
+        </div>
+    </div>
+    <PostCardCollection posts={results} />
+</BaseLayout>
+<style>
+    h2 {
+        @apply text-blue-600 text-4xl text-center mb-8
+    }
+
+    p {
+        @apply text-xl dark:text-indigo-100 indent-8
+    }
+
+    .icon {
+        @apply w-20 text-indigo-400 hover:border-b-4 border-blue-600 transition-all duration-75 pb-4 hover:pb-0
+    }
+</style>
