@@ -20,7 +20,7 @@ function toggleTheme() {
 <template>
   <button @click="toggleTheme()" v-if="dark" class="rounded-xl border dark:border-slate-700 dark:border-opacity-25 w-12 h-12">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-labelledby="title"
-    aria-describedby="desc" role="img" xmlns:xlink="http://www.w3.org/1999/xlink" class="dark:fill-white fill-black hover:fill-blue-600 dark:hover:fill-blue-600 transition-all duration-150">
+    aria-describedby="desc" role="img" xmlns:xlink="http://www.w3.org/1999/xlink" class="dark:fill-white fill-black hover:fill-blue-600 dark:hover:fill-blue-600 transition-all duration-75">
       <title>Toggle theme</title>
       <desc>A solid styled icon from Orion Icon Library.</desc>
       <path data-name="layer2"

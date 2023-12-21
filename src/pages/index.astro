@@ -2,24 +2,30 @@
 import Layout from '../layouts/BaseLayout.astro';
 
 import PostCardCollection from '../components/PostCardCollection.astro';
+import WideCardCollection from '../components/WideCardCollection.astro';
+
+import { filterPostsByTag } from '../scripts/posts';
 
 const posts = await Astro.glob('./blog/posts/*.md');
+
+let featured_projects = filterPostsByTag(posts, 'featured project');
 ---
 
 <Layout title="Bailey">
 	<div class='flex w-full pt-12 pb-36 justify-center'> 
-		<p class="text-6xl dark:text-white p-4 py-12">Hello! My name is <a class="text-indigo-400 text-8xl hover:border-b-8 border-blue-800 transition-all" href="/about">Bailey...</a></p>
+		<p class="text-6xl dark:text-white p-4 py-12">Hello! My name is <a class="text-indigo-400 text-8xl hover:border-b-8 border-blue-800 transition-all duration-75" href="/about">Bailey...</a></p>
 	</div>
 	<div class="xl:grid xl:grid-cols-2">
 		<div class="xl:col-span-1">
-
+			<h2 class="text-3xl py-2 px-2 text-blue-600 text-center">Featured Projects</h2>
+			<WideCardCollection posts={featured_projects} />
 		</div>
 		<div class="mb-12">
 			<!-- Shows the 4 most recent posts -->
 			<h2 class="text-3xl py-2 px-2 text-blue-600 text-center">Recent Posts</h2>
 			<PostCardCollection {posts} number="4"/>
 			<div class="flex">
-				<a href="/blog" class="ml-auto dark:text-white text-2xl px-2 m-2 group">See more <span class="text-indigo-400 group-hover:border-b-2 border-blue-800 transition-all">posts</span> →</a>
+				<a href="/blog" class="ml-auto dark:text-white text-2xl px-2 m-2 group">See more <span class="text-indigo-400 group-hover:border-b-2 border-blue-800 transition-all duration-75">posts</span> →</a>
 			</div>
 		</div>
 	</div>
