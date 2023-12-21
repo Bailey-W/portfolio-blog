@@ -1,14 +1,15 @@
 ---
 interface Props {
     tag: string,
+    small?: boolean
 }
 
-const { tag } = Astro.props;
+const { tag, small } = Astro.props;
 
 const tagForLink = tag.replaceAll(' ', '_');
 
 const link = `/blog/tags/${tagForLink}`;
 ---
-<a class="bg-indigo-400 mx-1 px-2 py-1 rounded-full text-black group" href={link}>
+<a class:list={["bg-indigo-400 mx-1 px-2 rounded-full text-black group", small ? "" : "py-1" ]} href={link}>
     #<span class="group-hover:border-b-2 border-blue-800 transition-all duration-75">{tag}</span>
 </a>
