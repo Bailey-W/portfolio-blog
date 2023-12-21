@@ -2,6 +2,7 @@
 import Layout from '../layouts/BaseLayout.astro';
 
 import PostCardCollection from '../components/PostCardCollection.astro';
+import WideCardCollection from '../components/WideCardCollection.astro';
 
 const posts = await Astro.glob('./blog/posts/*.md');
 ---
@@ -12,7 +13,8 @@ const posts = await Astro.glob('./blog/posts/*.md');
 	</div>
 	<div class="xl:grid xl:grid-cols-2">
 		<div class="xl:col-span-1">
-
+			<h2 class="text-3xl py-2 px-2 text-blue-600 text-center">Featured Projects</h2>
+			<WideCardCollection {posts} />
 		</div>
 		<div class="mb-12">
 			<!-- Shows the 4 most recent posts -->
