@@ -16,14 +16,14 @@ function formatDate(date: string) {
 
 <BaseLayout {title}>
     <p class="py-1"> </p>
-    <a href="/blog" class="group dark:text-white text-2xl">←<span class="text-indigo-400 group-hover:border-b-2 border-blue-800 transition-all">Back</span></a>
+    <a href="/blog" class="group dark:text-white text-2xl">←<span class="text-indigo-400 group-hover:border-b-2 border-blue-800 transition-all duration-75">Back</span></a>
     <div class="text-black dark:text-indigo-100 text-center py-1">
         <img src={frontmatter.image.url} alt={frontmatter.image.alt} class="mx-auto h-96 w-full object-cover"/>
         <h1 class="mt-10 text-5xl text-blue-600">
             {frontmatter.title}
         </h1>
         <h3 class="m-4 text-xl">
-            by <a href='/about' target='_blank' class="text-indigo-400 hover:border-b-2 border-blue-800 transition-all">{frontmatter.author}</a>
+            by <a href='/about' target='_blank' class="text-indigo-400 hover:border-b-2 border-blue-800 transition-all duration-75">{frontmatter.author}</a>
             <small class="text-sm">
                 | {formatDate(frontmatter.pubDate)}
             </small>
@@ -70,7 +70,7 @@ function formatDate(date: string) {
         }
 
         .article-slot * > a {
-            @apply text-indigo-400 hover:border-b-2 border-blue-800 transition-all
+            @apply text-indigo-400 hover:border-b-2 border-blue-800 transition-all duration-75
         }
 
         .article-slot * > img {
