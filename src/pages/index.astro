@@ -2,8 +2,13 @@
 import Layout from '../layouts/BaseLayout.astro';
 
 import PostCardCollection from '../components/PostCardCollection.astro';
+import WideCardCollection from '../components/WideCardCollection.astro';
+
+import { filterPostsByTag } from '../scripts/posts';
 
 const posts = await Astro.glob('./blog/posts/*.md');
+
+let featured_projects = filterPostsByTag(posts, 'featured project');
 ---
 
 <Layout title="Bailey">
@@ -12,7 +17,8 @@ const posts = await Astro.glob('./blog/posts/*.md');
 	</div>
 	<div class="xl:grid xl:grid-cols-2">
 		<div class="xl:col-span-1">
-
+			<h2 class="text-3xl py-2 px-2 text-blue-600 text-center">Featured Projects</h2>
+			<WideCardCollection posts={featured_projects} />
 		</div>
 		<div class="mb-12">
 			<!-- Shows the 4 most recent posts -->
