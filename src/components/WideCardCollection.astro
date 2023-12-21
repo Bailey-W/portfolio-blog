@@ -1,0 +1,19 @@
+---
+import WideCard from "./WideCard.astro";
+
+interface Props {
+    posts: Array<Object>,
+    number?: number,
+}
+
+const {posts, number} = Astro.props;
+
+// Limits posts to the specified number (if it exists)
+let selectedPosts = posts;
+if (number) {
+    selectedPosts = posts.slice(0, number);
+}
+---
+<div class="flex flex-col justify-center">
+    {selectedPosts.map((post: any) => <WideCard frontmatter={post.frontmatter} url={post.url} />)}
+</div>
