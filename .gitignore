@@ -22,3 +22,7 @@ pnpm-debug.log*
 
 # Don't put my resume on GH
 resume.pdf
+
+# Firebase
+.firebaserc
+*.cache
