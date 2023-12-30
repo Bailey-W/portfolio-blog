@@ -5,7 +5,10 @@ pubDate: 12-21-2023
 description: ''
 author: 'Bailey Wimer'
 image:
-    url: '/images/profile-picture.jpg'
+    url: '/images/telebot-3r-2.jpg'
     alt: 'My face'
-tags: ["journey", "experience", "learning in public"]
+tags: ["robotics", "experience", "featured project"]
 ---
+## 1. What is the Telebot?
+## 2. Technology
+## 3. The Refactor
